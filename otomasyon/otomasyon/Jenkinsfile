@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Docker image oluşturuluyor...'
+                sh 'docker build -t otomasyon-app .'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Container başlatılıyor ve testler çalıştırılıyor...'
+                sh 'docker run --rm -p 8080:8080 otomasyon-app ./mvnw test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy aşaması (örnek)'
+                // Gerçek deploy adımlarınızı buraya ekleyebilirsiniz
+            }
+        }
+    }
+}
