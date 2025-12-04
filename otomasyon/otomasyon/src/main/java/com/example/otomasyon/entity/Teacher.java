@@ -1,30 +1,18 @@
 package com.example.otomasyon.entity;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "teachers")
 public class Teacher {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
+    private String password;
+    private String role; // admin, hoca, ogrenci
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
-    // Ek alanlar (örnek: sicilNo, bölüm)
-    private String registrationNumber;
-    private String department;
-
-    // Getter ve Setter metotları
+    // Getter ve Setter
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
-    public String getRegistrationNumber() { return registrationNumber; }
-    public void setRegistrationNumber(String registrationNumber) { this.registrationNumber = registrationNumber; }
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }
-
